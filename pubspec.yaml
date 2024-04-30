@@ -1,10 +1,13 @@
 name: livin_clone
 description: A new Flutter project.
 version: 1.0.0+1
+publish_to: none
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
 dependencies:
+  ui:
+    path: libraries/ui
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2

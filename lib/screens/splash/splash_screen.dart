@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/ui.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -34,14 +35,14 @@ class _SplashScreenState extends State<SplashScreen> {
                   const CircularProgressIndicator(
                     color: Colors.white,
                   ),
-                  const SizedBox(
+                  const SpaceBar(
                     height: 32,
                   ),
                   Image.asset(
                     "assets/logo/lps_logo.png",
                     height: 56,
                   ),
-                  const SizedBox(
+                  const SpaceBar(
                     height: 8,
                   ),
                   const Text(
@@ -49,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.white, height: 1.2),
                   ),
-                  const SizedBox(
+                  const SpaceBar(
                     height: 8,
                   ),
                   const Text(
