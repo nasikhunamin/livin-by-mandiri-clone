@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:livin_clone/navigation/routes.dart';
+import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,6 +11,13 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 3))
+        .then((value) => context.goNamed(LivinRoutes.onboarding.name));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,18 +54,19 @@ class _SplashScreenState extends State<SplashScreen> {
                   const SpaceBar(
                     height: 8,
                   ),
-                  const Text(
+                  Text(
                     "PT Bank Mandiri (Persero) Tbk. berizin dan diawasi oleh otoritas jasa keuangan (OJK) serta merupakan peserta penjaminan Lembaga Pinjaman Simpanan (LPS)",
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white, height: 1.2),
+                    style: TextStyle(
+                        color: Colors.white, height: 1.2, fontSize: 14.sp),
                   ),
                   const SpaceBar(
                     height: 8,
                   ),
-                  const Text(
+                  Text(
                     "Copyright © 2024 Bank Mandiri",
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontSize: 10.sp),
                   )
                 ],
               ),
