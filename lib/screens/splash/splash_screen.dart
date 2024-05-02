@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:livin_clone/navigation/routes.dart';
+import 'package:core/src/routes/routes.dart';
 import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
 

@@ -1,4 +1,3 @@
-
 enum LivinRoutes {
   splash("/splash"),
   onboarding("/onboarding");

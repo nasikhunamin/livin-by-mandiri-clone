@@ -1,7 +1,5 @@
-import 'package:core/src/sharedprefs/shared_prefs.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../inject.dart';
+import 'package:core/core.dart';
+import 'package:shared/shared.dart';
 
 var getSelectedLanguageProvider =
     StateNotifierProvider.autoDispose<LanguageNotifier, String>((ref) {

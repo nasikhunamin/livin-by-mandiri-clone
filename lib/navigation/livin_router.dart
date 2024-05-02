@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_page.dart';
 import 'package:livin_clone/screens/splash/splash_screen.dart';
 import 'package:shared/shared.dart';
-import 'routes.dart';
+import 'package:core/core.dart';
 
 final GlobalKey<NavigatorState> _rootNavKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');

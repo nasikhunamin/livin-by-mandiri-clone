@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:livin_clone/navigation/livin_router.dart';
 import 'package:shared/shared.dart';
 import 'package:core/core.dart';
+import 'providers/language_provider.dart';
 
 class LivinApp extends ConsumerWidget {
   const LivinApp({super.key});
