@@ -15,7 +15,11 @@ class MainActivity: FlutterActivity() {
         getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE)
     }
 
-    override onPause(){
-        
+    override fun onPause(){
+        super.onPause();
+    }
+
+     override fun onResume(){
+        super.onResume();
     }
 }

@@ -129,8 +129,12 @@ class _OnboardingContentWidgetState extends State<OnboardingContentWidget>
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    MyNetworkImage(url: item.image),
-                    12.verticalSpace,
+                    MyNetworkImage(
+                      url: item.image,
+                      height: 300.h,
+                      fit: BoxFit.fitHeight,
+                    ),
+                    8.verticalSpace,
                     Text(
                       item.title,
                       textAlign: TextAlign.center,
@@ -143,7 +147,7 @@ class _OnboardingContentWidgetState extends State<OnboardingContentWidget>
                     Text(
                       item.description,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'poppins', fontSize: 14.sp),
+                      style: TextStyle(fontFamily: 'poppins', fontSize: 16.sp),
                     )
                   ],
                 ),
