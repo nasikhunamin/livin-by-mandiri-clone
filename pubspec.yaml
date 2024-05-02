@@ -10,6 +10,8 @@ dependencies:
     path: libraries/ui
   shared:
     path: libraries/shared
+  core:
+    path: libraries/core
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
@@ -23,6 +25,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/logo/
+    - assets/translations/
   fonts:
     - family: Poppins
       fonts:

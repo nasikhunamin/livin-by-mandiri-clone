@@ -1,15 +1,23 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
 
-class SwitchLanguageWidget extends StatefulWidget {
+class SwitchLanguageWidget extends ConsumerStatefulWidget {
   const SwitchLanguageWidget({super.key});
 
   @override
-  State<SwitchLanguageWidget> createState() => _SwitchLanguageWidgetState();
+  ConsumerState<SwitchLanguageWidget> createState() =>
+      _SwitchLanguageWidgetState();
 }
 
-class _SwitchLanguageWidgetState extends State<SwitchLanguageWidget> {
-  String _selectedLanguage = "en";
+class _SwitchLanguageWidgetState extends ConsumerState<SwitchLanguageWidget> {
+  late String _selectedLanguage;
+
+  @override
+  void initState() {
+    _selectedLanguage = locator.get<SharedPrefHelper>().getSelectedLanguage();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,22 +35,25 @@ class _SwitchLanguageWidgetState extends State<SwitchLanguageWidget> {
               isSelected: _selectedLanguage == "en",
               text: "en",
               onPressed: (value) {
-                setState(() {
-                  _selectedLanguage = value;
-                });
+                setCurrentLanguage(value);
               }),
           2.horizontalSpace,
           ContainerLanguage(
               isSelected: _selectedLanguage == "id",
               text: "id",
               onPressed: (value) {
-                setState(() {
-                  _selectedLanguage = value;
-                });
+                setCurrentLanguage(value);
               }),
         ],
       ),
     );
+  }
+
+  void setCurrentLanguage(String value) {
+    setState(() {
+      ref.read(getSelectedLanguageProvider.notifier).updateLanguage(value);
+      _selectedLanguage = value;
+    });
   }
 }
 

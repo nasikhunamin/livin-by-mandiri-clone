@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
 import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
+import 'package:core/core.dart';
 
 class OnboardingContentWidget extends StatefulWidget {
   final List<Onboarding> data;
@@ -137,7 +138,7 @@ class _OnboardingContentWidgetState extends State<OnboardingContentWidget>
                     ),
                     8.verticalSpace,
                     Text(
-                      item.title,
+                      item.title.trans(context),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'poppins',
@@ -146,7 +147,7 @@ class _OnboardingContentWidgetState extends State<OnboardingContentWidget>
                     ),
                     8.verticalSpace,
                     Text(
-                      item.description,
+                      item.description.trans(context),
                       textAlign: TextAlign.center,
                       style: TextStyle(fontFamily: 'poppins', fontSize: 16.sp),
                     )

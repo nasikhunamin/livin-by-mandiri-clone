@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_content_widget.dart';
@@ -5,14 +6,14 @@ import 'package:livin_clone/screens/onboarding/switch_language_widget.dart';
 import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
 
-class OnboardingPage extends StatefulWidget {
+class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
 
   @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
+  ConsumerState<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -29,13 +30,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   RoundedButton(
-                    text: "Belum punya Rekening Mandiri",
+                    text: "register_account".trans(context),
                     onPressed: () {},
                     fontSize: 16.sp,
                   ),
                   8.verticalSpace,
                   OutlineRoundedButton(
-                    text: "Punya Kartu Debit/Kredit Mandiri",
+                    text: "login_account".trans(context),
                     onPressed: () {},
                     fontSize: 16.sp,
                   ),
