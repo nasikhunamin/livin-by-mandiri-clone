@@ -8,6 +8,8 @@ environment:
 dependencies:
   ui:
     path: libraries/ui
+  shared:
+    path: libraries/shared
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2

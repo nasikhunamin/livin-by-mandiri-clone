@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:livin_clone/screens/splash/splash_screen.dart';
+import 'package:livin_clone/navigation/livin_router.dart';
+import 'package:shared/shared.dart';
 
 class LivinApp extends StatelessWidget {
   const LivinApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: "Livin-Clone",
+      builder: (context, child) {
+        ScreenUtil.init(context);
+        return child ?? const SizedBox.shrink();
+      },
       theme: ThemeData(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           colorSchemeSeed: Colors.blue,
           fontFamily: "Poppins"),
-      home: const SplashScreen(),
+      routerConfig: livinRouter,
     );
   }
 }
