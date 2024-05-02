@@ -69,9 +69,9 @@ class _OnboardingContentWidgetState extends State<OnboardingContentWidget>
     _animController.duration = const Duration(seconds: 3);
     _animController.forward();
     if (animateToPage) {
-      // _pageController.animateToPage(_currentIndex,
-      //     duration: const Duration(seconds: 1), curve: Curves.easeInOut);
-      _pageController.jumpToPage(_currentIndex);
+      _pageController.animateToPage(_currentIndex,
+          duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+      //_pageController.jumpToPage(_currentIndex);
     }
   }
 
@@ -124,8 +124,9 @@ class _OnboardingContentWidgetState extends State<OnboardingContentWidget>
             itemCount: widget.data.length,
             itemBuilder: (context, index) {
               var item = widget.data[index];
-              return Padding(
+              return Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16).r,
+                margin: EdgeInsets.only(bottom: 0.1.sh).r,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

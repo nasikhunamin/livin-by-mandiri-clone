@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_content_widget.dart';
+import 'package:livin_clone/screens/onboarding/switch_language_widget.dart';
 import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
 
@@ -20,6 +21,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
           alignment: Alignment.topLeft,
           children: [
             OnboardingContentWidget(data: onboardings),
+            Positioned(
+                top: 32.h, right: 8.w, child: const SwitchLanguageWidget()),
             Align(
               alignment: Alignment.bottomCenter,
               child: Column(
@@ -28,11 +31,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   RoundedButton(
                     text: "Belum punya Rekening Mandiri",
                     onPressed: () {},
+                    fontSize: 16.sp,
                   ),
                   8.verticalSpace,
                   OutlineRoundedButton(
                     text: "Punya Kartu Debit/Kredit Mandiri",
                     onPressed: () {},
+                    fontSize: 16.sp,
                   ),
                   16.verticalSpace,
                 ],
