@@ -27,10 +27,7 @@ class _SecureWidgetState extends State<SecureWidget>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    print("mna -> state ${state.name} mounted $mounted");
-
     setState(() {
-      print('mna -> call setstate');
       _secure = state == AppLifecycleState.paused;
     });
 

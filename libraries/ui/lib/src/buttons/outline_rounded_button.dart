@@ -10,9 +10,8 @@ class OutlineRoundedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 16),
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(

@@ -3,16 +3,20 @@ import 'package:flutter/material.dart';
 class RoundedButton extends StatelessWidget {
   final double fontSize;
   final String text;
+  final bool infinity;
   final Function()? onPressed;
 
   const RoundedButton(
-      {super.key, this.fontSize = 12, this.onPressed, required this.text});
+      {super.key,
+      this.fontSize = 12,
+      this.onPressed,
+      required this.text,
+      this.infinity = true});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+    return SizedBox(
+      width: (infinity) ? double.infinity : null,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,

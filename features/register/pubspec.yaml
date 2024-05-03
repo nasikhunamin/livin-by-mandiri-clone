@@ -1,5 +1,5 @@
-name: ui
-description: Provide ui and widget functionality used by features.
+name: register
+description: Provide register features.
 version: 0.0.1
 publish_to: none
 
@@ -10,12 +10,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cached_network_image: ^3.2.3
-  flutter_screenutil: ^5.7.0
-  
+  ui:
+    path: '../../libraries/ui'
+  core:
+    path: '../../libraries/core'
+  shared:
+    path: '../../libraries/shared'
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+
 flutter:

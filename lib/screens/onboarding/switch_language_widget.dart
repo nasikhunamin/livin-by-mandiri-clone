@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:shared/shared.dart';
+import 'package:ui/ui.dart';
 import '../../providers/language_provider.dart';
 
 class SwitchLanguageWidget extends ConsumerStatefulWidget {

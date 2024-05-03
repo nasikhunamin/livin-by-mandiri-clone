@@ -492,6 +492,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
+  register:
+    dependency: "direct main"
+    description:
+      path: "features/register"
+      relative: true
+    source: path
+    version: "0.0.1"
   riverpod:
     dependency: transitive
     description:
@@ -514,7 +521,7 @@ packages:
       path: "libraries/shared"
       relative: true
     source: path
-    version: "0.0.0"
+    version: "0.0.1"
   shared_preferences:
     dependency: transitive
     description:
@@ -678,7 +685,7 @@ packages:
       path: "libraries/ui"
       relative: true
     source: path
-    version: "0.0.0"
+    version: "0.0.1"
   uri:
     dependency: transitive
     description:

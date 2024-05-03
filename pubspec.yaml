@@ -12,6 +12,8 @@ dependencies:
     path: libraries/shared
   core:
     path: libraries/core
+  register:
+    path: features/register
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2

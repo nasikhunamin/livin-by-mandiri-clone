@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_page.dart';
 import 'package:livin_clone/screens/splash/splash_screen.dart';
+import 'package:register/register.dart';
 import 'package:shared/shared.dart';
-import 'package:core/core.dart';
+
+import 'routes.dart';
 
 final GlobalKey<NavigatorState> _rootNavKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -25,4 +27,5 @@ final GoRoute splashRoute = GoRoute(
 final GoRoute onboardingRoute = GoRoute(
     path: LivinRoutes.onboarding.path,
     name: LivinRoutes.onboarding.name,
-    builder: (context, state) => const OnboardingPage());
+    builder: (context, state) => const OnboardingPage(),
+    routes: [registerRoute]);
