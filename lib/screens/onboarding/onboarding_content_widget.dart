@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
-import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
 import 'package:core/core.dart';
 

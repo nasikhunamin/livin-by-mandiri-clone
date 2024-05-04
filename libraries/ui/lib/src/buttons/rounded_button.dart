@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/ui.dart';
 
 class RoundedButton extends StatelessWidget {
   final double fontSize;
@@ -8,7 +9,7 @@ class RoundedButton extends StatelessWidget {
 
   const RoundedButton(
       {super.key,
-      this.fontSize = 12,
+      this.fontSize = 16,
       this.onPressed,
       required this.text,
       this.infinity = true});
@@ -21,12 +22,12 @@ class RoundedButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,
               shape: const StadiumBorder(),
-              padding: const EdgeInsets.all(16)),
+              padding: const EdgeInsets.all(16).r),
           onPressed: onPressed,
           child: Text(
             text,
             style: TextStyle(
-                fontSize: fontSize,
+                fontSize: fontSize.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.white),
           )),

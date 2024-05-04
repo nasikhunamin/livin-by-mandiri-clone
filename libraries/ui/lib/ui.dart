@@ -12,6 +12,7 @@ export 'src/buttons/rounded_button.dart';
 // base
 export 'src/base/scaffold_widget.dart';
 export 'src/base/scaffold_with_scroll_widget.dart';
+export 'src/base/web_widget.dart';
 
 // textfield
 export 'src/textfield/filled_text_field.dart';

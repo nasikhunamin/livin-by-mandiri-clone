@@ -85,7 +85,6 @@ class RegisterProductScreen extends StatelessWidget {
                 ),
                 RoundedButton(
                   text: "Open Account Now",
-                  fontSize: 14.sp,
                   onPressed: () {},
                 )
               ],
