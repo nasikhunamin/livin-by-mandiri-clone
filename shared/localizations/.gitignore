@@ -28,6 +28,3 @@ migrate_working_dir/
 .dart_tool/
 .packages
 build/
-
-lib/l10n/livin_localizations_en.dart
-lib/l10n/livin_localizations_id.dart

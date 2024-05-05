@@ -30,4 +30,9 @@ scripts:
     exec: fluttergen -c pubspec.yaml
     packageFilters:
       scope: "*gen*"
+  localizations:
+    description: Run 'localizations generator'
+    exec: flutter gen-l10n
+    packageFilters:
+      scope: "*localizations*" 
   
