@@ -1,5 +1,5 @@
 import 'package:core/core.dart';
-import 'package:shared/shared.dart';
+import 'package:dependencies/dependencies.dart';
 
 var getSelectedLanguageProvider =
     StateNotifierProvider.autoDispose<LanguageNotifier, String>((ref) {

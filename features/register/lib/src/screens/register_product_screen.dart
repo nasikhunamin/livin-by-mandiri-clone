@@ -1,9 +1,10 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:gen/gen/fonts.gen.dart';
+import 'package:localizations/l10n/ext.dart';
 import 'package:register/src/screens/info_product_screen.dart';
 import 'package:register/src/screens/referral_screen.dart';
-import 'package:shared/shared.dart';
 import 'package:ui/ui.dart';
+import 'package:dependencies/dependencies.dart';
 
 class RegisterProductScreen extends StatelessWidget {
   const RegisterProductScreen({super.key});
@@ -11,7 +12,7 @@ class RegisterProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScaffoldWidget(
-      title: "register_product".trans(context),
+      title: context.l10n.registerProduct,
       onBack: () {
         context.pop();
       },
@@ -40,7 +41,7 @@ class RegisterProductScreen extends StatelessWidget {
                 const Text(
                   "Open Savings Account Without Hassle, Just Need",
                   style: TextStyle(
-                      fontFamily: "poppins",
+                      fontFamily: FontFamily.poppins,
                       fontSize: 24,
                       fontWeight: FontWeight.bold),
                 ),
@@ -48,7 +49,7 @@ class RegisterProductScreen extends StatelessWidget {
                     text:
                         "With a 100K initial deposit, you can start exploring exciting features. ",
                     style: TextStyle(
-                      fontFamily: "poppins",
+                      fontFamily: FontFamily.poppins,
                       fontSize: 18.sp,
                     ),
                     children: [
@@ -63,7 +64,7 @@ class RegisterProductScreen extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.blue,
                               fontSize: 18.sp,
-                              fontFamily: "poppins",
+                              fontFamily: FontFamily.poppins,
                               fontWeight: FontWeight.w500),
                         ),
                       ))
@@ -77,7 +78,7 @@ class RegisterProductScreen extends StatelessWidget {
                     "Have a Referreal Code? Tap Here",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontFamily: "poppins",
+                        fontFamily: FontFamily.poppins,
                         fontSize: 16,
                         color: Colors.blue,
                         fontWeight: FontWeight.bold),

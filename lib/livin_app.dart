@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gen/gen.dart';
 import 'package:livin_clone/navigation/livin_router.dart';
-import 'package:shared/shared.dart';
+import 'package:dependencies/dependencies.dart';
+import 'package:localizations/localizations.dart';
 import 'package:ui/ui.dart';
 import 'package:core/core.dart';
 import 'providers/language_provider.dart';
@@ -27,7 +29,7 @@ class LivinApp extends ConsumerWidget {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           colorSchemeSeed: Colors.blue,
-          fontFamily: "Poppins"),
+          fontFamily: FontFamily.poppins),
       routerConfig: livinRouter,
     );
   }

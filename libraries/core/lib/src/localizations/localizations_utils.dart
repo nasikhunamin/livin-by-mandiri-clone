@@ -4,6 +4,6 @@ import 'app_localizations.dart';
 
 extension Localizations on String {
   String trans(BuildContext context) {
-    return AppLocalizations.of(context).trans(this);
+    return WmcsLocalizations.of(context).trans(this);
   }
 }

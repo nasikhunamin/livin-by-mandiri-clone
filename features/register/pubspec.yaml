@@ -14,8 +14,12 @@ dependencies:
     path: '../../libraries/ui'
   core:
     path: '../../libraries/core'
-  shared:
-    path: '../../libraries/shared'
+  localizations:
+    path: '../../shared/localizations'
+  dependencies:
+    path: '../../shared/dependencies'
+  gen:
+    path: '../../shared/gen'
 
 dev_dependencies:
   flutter_test:

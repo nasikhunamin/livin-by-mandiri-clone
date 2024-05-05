@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gen/gen.dart';
 import 'package:ui/ui.dart';
 
 class ScaffoldWidget extends StatelessWidget {
@@ -44,7 +45,7 @@ class ScaffoldTitle extends StatelessWidget {
     return Text(
       title,
       style: TextStyle(
-          fontFamily: "poppins",
+          fontFamily: FontFamily.poppins,
           fontWeight: FontWeight.bold,
           color: Colors.black,
           fontSize: fontSize),

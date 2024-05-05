@@ -7,13 +7,13 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'app_localizations_delegate.dart';
 
-class AppLocalizations {
-  AppLocalizations(this.locale);
+class WmcsLocalizations {
+  WmcsLocalizations(this.locale);
 
   final Locale locale;
 
-  static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+  static WmcsLocalizations of(BuildContext context) {
+    return Localizations.of<WmcsLocalizations>(context, WmcsLocalizations)!;
   }
 
   /// A list of this localizations delegate's supported locales.

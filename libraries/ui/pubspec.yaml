@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  gen:
+    path: '../../shared/gen'
   cached_network_image: ^3.2.3
   flutter_screenutil: ^5.7.0
   webview_flutter: ^4.4.2
