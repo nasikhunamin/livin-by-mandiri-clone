@@ -8,12 +8,16 @@ environment:
 dependencies:
   ui:
     path: libraries/ui
-  shared:
-    path: libraries/shared
   core:
     path: libraries/core
   register:
     path: features/register
+  localizations:
+    path: shared/localizations
+  dependencies:
+    path: shared/dependencies
+  gen:
+    path: shared/gen
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
@@ -26,20 +30,4 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/logo/
     - assets/translations/
-  fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/poppins_regular.ttf
-        - asset: assets/fonts/poppins_italic.ttf
-          style: italic
-        - asset: assets/fonts/poppins_semibold.ttf
-          weight: 500
-        - asset: assets/fonts/poppins_bold.ttf
-          weight: 700
-    - family: Batik
-      fonts:
-        - asset: assets/fonts/telkomsel_batik_sans_regular.ttf
-        - asset: assets/fonts/telkomsel_batik_sans_bold.ttf
-          weight: 700

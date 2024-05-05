@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared/shared.dart';
+import 'package:dependencies/dependencies.dart';
+import 'package:gen/gen.dart';
 import 'package:ui/ui.dart';
 
 import '../../navigation/routes.dart';
@@ -28,10 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Align(
             alignment: Alignment.center,
-            child: Image.asset(
-              "assets/logo/livin_splash_logo.png",
-              fit: BoxFit.cover,
-            ),
+            child: Assets.logo.livinSplashLogo.image(fit: BoxFit.cover),
           ),
           Align(
             alignment: Alignment.bottomCenter,
@@ -48,10 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   const SpaceBar(
                     height: 32,
                   ),
-                  Image.asset(
-                    "assets/logo/lps_logo.png",
-                    height: 56,
-                  ),
+                  Assets.logo.lpsLogo.image(height: 56),
                   const SpaceBar(
                     height: 8,
                   ),

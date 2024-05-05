@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'localizations.dart';
 
-class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+class AppLocalizationsDelegate
+    extends LocalizationsDelegate<WmcsLocalizations> {
   const AppLocalizationsDelegate();
 
   @override
   bool isSupported(Locale locale) => ['id', 'en'].contains(locale.languageCode);
 
   @override
-  Future<AppLocalizations> load(Locale locale) async {
-    AppLocalizations localizations = AppLocalizations(locale);
+  Future<WmcsLocalizations> load(Locale locale) async {
+    WmcsLocalizations localizations = WmcsLocalizations(locale);
     await localizations.load();
     return localizations;
   }

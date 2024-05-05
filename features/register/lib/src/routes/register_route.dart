@@ -1,5 +1,5 @@
 import 'package:register/src/screens/register_product_screen.dart';
-import 'package:shared/shared.dart';
+import 'package:dependencies/dependencies.dart';
 
 final GoRoute registerRoute = GoRoute(
     path: RegisterRoute.register.path,

@@ -1,10 +1,10 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_content_widget.dart';
 import 'package:livin_clone/screens/onboarding/switch_language_widget.dart';
+import 'package:localizations/l10n/ext.dart';
 import 'package:register/register.dart';
-import 'package:shared/shared.dart';
+import 'package:dependencies/dependencies.dart';
 import 'package:ui/ui.dart';
 
 class OnboardingPage extends ConsumerStatefulWidget {
@@ -17,6 +17,21 @@ class OnboardingPage extends ConsumerStatefulWidget {
 class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
+    List<Onboarding> onboardings = [
+      Onboarding(
+          'https://tdwstcontent.telkomsel.com/s3fs-public/images/pages/assets/onboarding_reskin_image1.png',
+          context.l10n.onboarding1,
+          context.l10n.descOnboarding1),
+      Onboarding(
+          'https://tdwstcontent.telkomsel.com/s3fs-public/images/pages/assets/onboarding_reskin_image2.png',
+          context.l10n.onboarding2,
+          context.l10n.descOnboarding2),
+      Onboarding(
+          'https://tdwstcontent.telkomsel.com/s3fs-public/images/pages/assets/onboarding_reskin_image3.png',
+          context.l10n.onboarding3,
+          context.l10n.descOnboarding3)
+    ];
+
     return Material(
       child: SafeArea(
         child: Stack(
@@ -33,7 +48,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     RoundedButton(
-                      text: "register_account".trans(context),
+                      text: context.l10n.registerAccount,
                       onPressed: () {
                         context.goNamed(RegisterRoute.register.name);
                       },
@@ -41,7 +56,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                     ),
                     8.verticalSpace,
                     OutlineRoundedButton(
-                      text: "login_account".trans(context),
+                      text: context.l10n.loginAccount,
                       onPressed: () {},
                       fontSize: 16.sp,
                     ),

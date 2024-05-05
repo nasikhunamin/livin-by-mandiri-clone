@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gen/gen/fonts.gen.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
 import 'package:ui/ui.dart';
-import 'package:core/core.dart';
 
 class OnboardingContentWidget extends StatefulWidget {
   final List<Onboarding> data;
@@ -137,18 +137,18 @@ class _OnboardingContentWidgetState extends State<OnboardingContentWidget>
                     ),
                     8.verticalSpace,
                     Text(
-                      item.title.trans(context),
+                      item.title,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontFamily: 'poppins',
+                          fontFamily: FontFamily.poppins,
                           fontWeight: FontWeight.bold,
                           fontSize: 20.sp),
                     ),
                     8.verticalSpace,
                     Text(
-                      item.description.trans(context),
+                      item.description,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'poppins', fontSize: 16.sp),
+                      style: TextStyle(fontFamily: FontFamily.poppins, fontSize: 16.sp),
                     )
                   ],
                 ),

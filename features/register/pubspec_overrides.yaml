@@ -1,8 +1,12 @@
-# melos_managed_dependency_overrides: core,shared,ui
+# melos_managed_dependency_overrides: core,dependencies,gen,localizations,ui
 dependency_overrides:
   core:
     path: ..\\..\\libraries\\core
-  shared:
-    path: ..\\..\\libraries\\shared
+  dependencies:
+    path: ..\\..\\shared\\dependencies
+  gen:
+    path: ..\\..\\shared\\gen
+  localizations:
+    path: ..\\..\\shared\\localizations
   ui:
     path: ..\\..\\libraries\\ui

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_page.dart';
 import 'package:livin_clone/screens/splash/splash_screen.dart';
 import 'package:register/register.dart';
-import 'package:shared/shared.dart';
+import 'package:dependencies/dependencies.dart';
 
 import 'routes.dart';
 
