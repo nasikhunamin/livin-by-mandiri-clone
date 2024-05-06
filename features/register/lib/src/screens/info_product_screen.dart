@@ -13,7 +13,6 @@ class InfoProductScreen extends StatelessWidget {
             WebWidget(
               url: "https://pub.dev/packages/webview_flutter",
               onLoadUrl: (url) {},
-              onPageFinished: () {},
               onLoading: () {},
             ),
             Positioned(

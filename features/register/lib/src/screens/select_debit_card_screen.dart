@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:register/register.dart';
 import 'package:register/src/screens/widgets/debit_card_slider.dart';
 import 'package:ui/ui.dart';
 
@@ -53,7 +54,9 @@ class _SelectDebitCardScreenState extends State<SelectDebitCardScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: RoundedButton(
               text: "Next",
-              onPressed: () {},
+              onPressed: () {
+                RegisterNavigation.navigateToTnc(context);
+              },
             ),
           )
         ],

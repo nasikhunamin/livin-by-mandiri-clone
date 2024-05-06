@@ -5,8 +5,9 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class WebWidget extends StatefulWidget {
   final Function()? onLoading;
-  final Function()? onPageFinished;
+  final Function(double)? onPageFinished;
   final Function(String)? onLoadUrl;
+  final bool disableVerticalScroll, disableHorizontalScroll;
   final String url;
 
   const WebWidget(
@@ -14,7 +15,9 @@ class WebWidget extends StatefulWidget {
       required this.url,
       this.onLoading,
       this.onLoadUrl,
-      this.onPageFinished});
+      this.onPageFinished,
+      this.disableHorizontalScroll = false,
+      this.disableVerticalScroll = false});
 
   @override
   State<WebWidget> createState() => _WebWidgetState();
@@ -22,6 +25,8 @@ class WebWidget extends StatefulWidget {
 
 class _WebWidgetState extends State<WebWidget> {
   //late WebViewController controller;
+
+  double loadingPercentage = 0.0;
 
   InAppWebViewController? controller;
 
@@ -53,8 +58,6 @@ class _WebWidgetState extends State<WebWidget> {
     //   }))
     //   ..setBackgroundColor(Colors.white)
     //   ..setJavaScriptMode(JavaScriptMode.unrestricted);
-
-    controller?.reload();
   }
 
   @override
@@ -66,45 +69,73 @@ class _WebWidgetState extends State<WebWidget> {
   Widget build(BuildContext context) {
     //return WebViewWidget(controller: controller);
 
-    return InAppWebView(
-      key: const ValueKey("web_widget"),
-      initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
-      //initialSettings: settings,
-      initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-            useShouldOverrideUrlLoading: true,
-            mediaPlaybackRequiresUserGesture: false,
-          ),
-          android: AndroidInAppWebViewOptions(
-            useHybridComposition: false,
-          ),
-          ios: IOSInAppWebViewOptions(
-            allowsInlineMediaPlayback: true,
-          )),
-      onLoadStart: (controller, url) {
-        if (widget.onLoading != null) widget.onLoading!();
-      },
-      onLoadStop: (controller, url) {
-        if (widget.onPageFinished != null) widget.onPageFinished!();
-      },
-      shouldOverrideUrlLoading: (controller, navigationAction) async {
-        if (widget.onLoadUrl != null) {
-          widget.onLoadUrl!(navigationAction.request.url.toString());
+    return Stack(
+      children: [
+        InAppWebView(
+          key: const ValueKey("web_widget"),
+          initialUrlRequest: URLRequest(url: Uri.parse(widget.url)),
+          //initialSettings: settings,
+          initialOptions: InAppWebViewGroupOptions(
+              crossPlatform: InAppWebViewOptions(
+                  useShouldOverrideUrlLoading: true,
+                  mediaPlaybackRequiresUserGesture: false,
+                  cacheEnabled: true,
+                  transparentBackground: true,
+                  disableHorizontalScroll: widget.disableHorizontalScroll,
+                  disableVerticalScroll: widget.disableVerticalScroll),
+              android: AndroidInAppWebViewOptions(
+                useHybridComposition: true,
+              ),
+              ios: IOSInAppWebViewOptions(
+                allowsInlineMediaPlayback: true,
+              )),
+          onLoadStart: (controller, url) {
+            if (widget.onLoading != null) widget.onLoading!();
+            setState(() {
+              loadingPercentage = 0.0;
+            });
+          },
+          onLoadStop: (controller, url) async {
+            if (widget.onPageFinished != null) {
+              num? newHeight = await controller.evaluateJavascript(
+                  source: "document.documentElement.scrollHeight;");
+              widget.onPageFinished!(newHeight?.toDouble() ?? 0.0);
+            }
 
-          return NavigationActionPolicy.CANCEL;
-        }
+            setState(() {
+              loadingPercentage = 100;
+            });
+          },
+          shouldOverrideUrlLoading: (controller, navigationAction) async {
+            if (widget.onLoadUrl != null) {
+              widget.onLoadUrl!(navigationAction.request.url.toString());
 
-        return NavigationActionPolicy.ALLOW;
-      },
-      onProgressChanged: (controller, progress) {
-        if (widget.onLoading != null && progress < 100) widget.onLoading!();
-        if (widget.onPageFinished != null && progress >= 100) {
-          widget.onPageFinished!();
-        }
-      },
-      onWebViewCreated: (controller) {
-        this.controller = controller;
-      },
+              return NavigationActionPolicy.CANCEL;
+            }
+
+            return NavigationActionPolicy.ALLOW;
+          },
+          onProgressChanged: (controller, progress) async {
+            if (widget.onLoading != null && progress < 100) widget.onLoading!();
+            if (widget.onPageFinished != null && progress >= 100) {
+              num? newHeight = await controller.evaluateJavascript(
+                  source: "document.documentElement.scrollHeight;");
+              widget.onPageFinished!(newHeight?.toDouble() ?? 0.0);
+            }
+
+            setState(() {
+              loadingPercentage = progress.toDouble();
+            });
+          },
+          onWebViewCreated: (controller) {
+            this.controller = controller;
+          },
+        ),
+        if (loadingPercentage < 100)
+          LinearProgressIndicator(
+            value: loadingPercentage / 100.0,
+          ),
+      ],
     );
   }
 }
