@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui/ui.dart';
+import '../routes/register_route.dart';
 
 class ReferrealScreen extends StatefulWidget {
   const ReferrealScreen({super.key});
@@ -60,6 +61,7 @@ class _ReferrealScreenState extends State<ReferrealScreen> {
               text: "Continue open Account",
               onPressed: () {
                 FocusManager.instance.primaryFocus?.unfocus();
+                RegisterNavigation.navigateToSelectDebitCard(context);
               },
             )
           ],

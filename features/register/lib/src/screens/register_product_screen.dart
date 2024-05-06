@@ -6,6 +6,8 @@ import 'package:register/src/screens/referral_screen.dart';
 import 'package:ui/ui.dart';
 import 'package:dependencies/dependencies.dart';
 
+import '../../register.dart';
+
 class RegisterProductScreen extends StatelessWidget {
   const RegisterProductScreen({super.key});
 
@@ -86,7 +88,9 @@ class RegisterProductScreen extends StatelessWidget {
                 ),
                 RoundedButton(
                   text: "Open Account Now",
-                  onPressed: () {},
+                  onPressed: () {
+                    RegisterNavigation.navigateToSelectDebitCard(context);
+                  },
                 )
               ],
             ),

@@ -16,6 +16,8 @@ dependencies:
   flutter_screenutil: ^5.7.0
   webview_flutter: ^4.4.2
   flutter_inappwebview: ^5.8.0
+  carousel_slider: ^4.2.1
+  dots_indicator: ^3.0.0
   
 
 dev_dependencies:

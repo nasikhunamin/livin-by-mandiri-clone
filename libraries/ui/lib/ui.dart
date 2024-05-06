@@ -21,3 +21,9 @@ export 'src/textfield/filled_text_field.dart';
 export 'src/styles/color_palletes.dart';
 
 export 'package:flutter_screenutil/flutter_screenutil.dart';
+export 'package:carousel_slider/utils.dart';
+export 'package:carousel_slider/carousel_slider.dart';
+export 'package:carousel_slider/carousel_controller.dart';
+export 'package:carousel_slider/carousel_options.dart';
+export 'package:carousel_slider/carousel_state.dart';
+export 'package:dots_indicator/dots_indicator.dart';

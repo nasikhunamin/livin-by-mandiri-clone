@@ -21,13 +21,17 @@ class FilledTextField extends StatelessWidget {
       showCursor: true,
       cursorColor: Colors.blue,
       decoration: InputDecoration(
-          filled: true,
-          border: const UnderlineInputBorder(),
-          labelText: labelText,
-          hintText: hintText),
+        filled: true,
+        border: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 1.0)),
+        labelText: labelText,
+        hintText: hintText,
+        labelStyle: TextStyle(fontFamily: 'Poppins', fontSize: 16.sp),
+        hintStyle: TextStyle(fontFamily: 'Poppins', fontSize: 16.sp),
+      ),
       maxLines: 1,
       style: TextStyle(
-          fontFamily: 'Poppins', fontSize: 14.sp, color: Colors.black),
+          fontFamily: 'Poppins', fontSize: 16.sp, color: Colors.black),
       textAlign: TextAlign.start,
       onChanged: (value) {
         controller.text = value;

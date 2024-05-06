@@ -34,5 +34,8 @@ scripts:
     description: Run 'localizations generator'
     exec: flutter gen-l10n
     packageFilters:
-      scope: "*localizations*" 
+      scope: "*localizations*"
+  pub_get:
+    description: Run 'pub get' in all packages
+    exec: flutter pub get
   
