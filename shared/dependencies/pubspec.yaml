@@ -12,6 +12,9 @@ dependencies:
     sdk: flutter
   go_router: ^12.1.1
   flutter_riverpod: ^2.3.7
+  path_provider: ^2.1.1
+  path_drawing: ^1.0.1
+  permission_handler: ^11.0.1
 
 dev_dependencies:
   flutter_test:

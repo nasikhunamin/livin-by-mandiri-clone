@@ -3,6 +3,8 @@ import 'package:register/src/screens/register_product_screen.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:register/src/screens/register_tnc_screen.dart';
 import 'package:register/src/screens/select_debit_card_screen.dart';
+import 'package:register/src/screens/take_id_screen.dart';
+import 'package:ui/ui.dart';
 
 final GoRoute registerRoute = GoRoute(
     path: RegisterRoute.register.path,
@@ -20,12 +22,16 @@ enum RegisterRoute {
 
 abstract class RegisterNavigation {
   static void navigateToSelectDebitCard(BuildContext context) {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => const SelectDebitCardScreen()));
+    Navigator.of(context)
+        .push(Transition.createRoute(const SelectDebitCardScreen()));
   }
 
   static void navigateToTnc(BuildContext context) {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => const RegisterTncScreen()));
+    Navigator.of(context)
+        .push(Transition.createRoute(const RegisterTncScreen()));
+  }
+
+  static void navigateToTakeId(BuildContext context) {
+    Navigator.of(context).push(Transition.createRoute(const TakeidScreen()));
   }
 }

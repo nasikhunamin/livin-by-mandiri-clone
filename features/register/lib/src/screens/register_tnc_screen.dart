@@ -1,6 +1,7 @@
 import 'package:dependencies/dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:register/register.dart';
 import 'package:ui/ui.dart';
 
 class RegisterTncScreen extends StatefulWidget {
@@ -28,9 +29,7 @@ class _RegisterTncScreenState extends State<RegisterTncScreen> {
 
   @override
   void initState() {
-    _scrollController.addListener(() {
-      
-    });
+    _scrollController.addListener(() {});
     super.initState();
   }
 
@@ -119,14 +118,17 @@ class _RegisterTncScreenState extends State<RegisterTncScreen> {
   Widget getButtons() {
     return Padding(
       padding: EdgeInsets.only(
-              left: 16, right: 16, bottom: 36, top: _expanded ? 48 : 0.4.sh).r,
+              left: 16, right: 16, bottom: 36, top: _expanded ? 48 : 0.4.sh)
+          .r,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           RoundedButton(
             text: "I Agree",
-            onPressed: () {},
+            onPressed: () {
+              RegisterNavigation.navigateToTakeId(context);
+            },
           ),
           TextButton(
               onPressed: () {},
@@ -174,9 +176,9 @@ class _RegisterTncScreenState extends State<RegisterTncScreen> {
           //toggle section expand state
           setState(() {
             section.setSectionExpanded(!section.isSectionExpanded());
-            tncSections.forEach((element) {
+            for (var element in tncSections) {
               _expanded = element.expanded == true;
-            });
+            }
           });
         });
   }

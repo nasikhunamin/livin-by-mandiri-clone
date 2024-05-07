@@ -12,7 +12,7 @@ class MainActivity: FlutterActivity() {
         GeneratedPluginRegistrant.registerWith(flutterEngine)
         
         // Add FLAG_SECURE to prevent screenshots and screen recordings
-        getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE)
+        //getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE)
     }
 
     override fun onPause(){

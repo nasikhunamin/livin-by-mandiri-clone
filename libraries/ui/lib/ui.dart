@@ -4,6 +4,9 @@ export 'src/indicator_widget.dart';
 export 'src/secure_widget.dart';
 export 'src/my_text.dart';
 export 'src/my_network_image.dart';
+export 'src/capture/capture.dart';
+export 'src/dash/dashed_border.dart';
+export 'src/transition/transition.dart';
 
 // buttons
 export 'src/buttons/outline_rounded_button.dart';

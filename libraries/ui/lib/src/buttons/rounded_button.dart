@@ -5,6 +5,7 @@ class RoundedButton extends StatelessWidget {
   final double fontSize;
   final String text;
   final bool infinity;
+  final double padding;
   final Function()? onPressed;
 
   const RoundedButton(
@@ -12,6 +13,7 @@ class RoundedButton extends StatelessWidget {
       this.fontSize = 16,
       this.onPressed,
       required this.text,
+      this.padding = 16,
       this.infinity = true});
 
   @override
@@ -22,7 +24,7 @@ class RoundedButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,
               shape: const StadiumBorder(),
-              padding: const EdgeInsets.all(16).r),
+              padding: EdgeInsets.all(padding).r),
           onPressed: onPressed,
           child: Text(
             text,
