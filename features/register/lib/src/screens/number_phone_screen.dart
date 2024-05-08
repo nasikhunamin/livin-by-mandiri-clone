@@ -3,8 +3,6 @@ import 'package:register/register.dart';
 import 'package:register/src/screens/widgets/progress_scaffold_widget.dart';
 import 'package:ui/ui.dart';
 
-final scaffoldState = GlobalKey<ScaffoldState>();
-
 class NumberPhoneScreen extends StatefulWidget {
   const NumberPhoneScreen({super.key});
 
@@ -20,7 +18,6 @@ class _NumberPhoneScreenState extends State<NumberPhoneScreen> {
   @override
   Widget build(BuildContext context) {
     return ProgressScaffoldWidget(
-        scaffoldState: scaffoldState,
         progress: 0.4,
         child: Stack(
           alignment: Alignment.topCenter,
@@ -120,7 +117,7 @@ class _NumberPhoneScreenState extends State<NumberPhoneScreen> {
 
   void showNotifBottomSheet() {
     showModalBottomSheet(
-      context: scaffoldState.currentContext!,
+      context: context,
       backgroundColor: Colors.white,
       elevation: 32,
       enableDrag: false,
@@ -168,7 +165,7 @@ class _NumberPhoneScreenState extends State<NumberPhoneScreen> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.w400,
-                          fontSize: 16.sp,
+                          fontSize: 14.sp,
                           color: Colors.grey.shade700),
                     ),
                     4.verticalSpace,
@@ -183,7 +180,7 @@ class _NumberPhoneScreenState extends State<NumberPhoneScreen> {
                         "Pastikan nomor aktif dan berada di jangkauan Anda.",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 16.sp,
+                            fontSize: 14.sp,
                             color: Colors.grey.shade700),
                         maxLines: 2,
                       ),
@@ -199,7 +196,7 @@ class _NumberPhoneScreenState extends State<NumberPhoneScreen> {
                         "Jaga kerahasiaan OTP dan jangan bagikan ke orang lain termasuk staf bank.",
                         style: TextStyle(
                             fontWeight: FontWeight.w400,
-                            fontSize: 16.sp,
+                            fontSize: 14.sp,
                             color: Colors.grey.shade700),
                         maxLines: 3,
                       ),
@@ -216,6 +213,7 @@ class _NumberPhoneScreenState extends State<NumberPhoneScreen> {
                   text: "Kirim SMS",
                   onPressed: () {
                     Navigator.pop(context);
+                    RegisterNavigation.navigateToOtp(context);
                   },
                 ),
               )

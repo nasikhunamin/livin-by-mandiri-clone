@@ -7,6 +7,9 @@ export 'src/my_network_image.dart';
 export 'src/capture/capture.dart';
 export 'src/dash/dashed_border.dart';
 export 'src/transition/transition.dart';
+export 'src/timer/countdown.dart';
+export 'src/timer/countdown_controller.dart';
+export 'src/timer/timer_utils.dart';
 
 // buttons
 export 'src/buttons/outline_rounded_button.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:register/src/screens/input_otp_screen.dart';
 import 'package:register/src/screens/number_phone_screen.dart';
 import 'package:register/src/screens/register_product_screen.dart';
 import 'package:dependencies/dependencies.dart';
@@ -53,5 +54,9 @@ abstract class RegisterNavigation {
     } else {
       return "";
     }
+  }
+
+  static void navigateToOtp(BuildContext context) {
+    Navigator.push(context, Transition.createRoute(const InputOtpScreen()));
   }
 }
