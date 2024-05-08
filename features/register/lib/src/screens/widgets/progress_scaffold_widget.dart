@@ -4,13 +4,18 @@ import 'package:ui/ui.dart';
 class ProgressScaffoldWidget extends StatelessWidget {
   final double progress;
   final Widget child;
+  final GlobalKey<ScaffoldState>? scaffoldState;
 
   const ProgressScaffoldWidget(
-      {super.key, required this.progress, required this.child});
+      {super.key,
+      required this.progress,
+      required this.child,
+      this.scaffoldState});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldState,
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
       appBar: AppBar(

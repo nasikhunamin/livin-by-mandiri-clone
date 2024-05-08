@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:register/src/routes/register_route.dart';
 import 'package:register/src/screens/widgets/progress_scaffold_widget.dart';
 import 'package:ui/ui.dart';
 
@@ -64,8 +65,8 @@ class _TakeidScreenState extends State<TakeidScreen> {
                               icon: const Icon(Icons.camera),
                               color: Colors.white,
                               onPressed: () async {
-                                var result = await showCapture(
-                                    context: context);
+                                var result =
+                                    await showCapture(context: context);
                                 setState(() {
                                   idFile = result;
                                 });
@@ -81,7 +82,9 @@ class _TakeidScreenState extends State<TakeidScreen> {
               alignment: Alignment.bottomCenter,
               child: RoundedButton(
                 text: "Next",
-                onPressed: () {},
+                onPressed: () {
+                  RegisterNavigation.navigateToNumberPhone(context);
+                },
               ),
             )
           ],

@@ -33,10 +33,6 @@ class FilledTextField extends StatelessWidget {
       style: TextStyle(
           fontFamily: 'Poppins', fontSize: 16.sp, color: Colors.black),
       textAlign: TextAlign.start,
-      onChanged: (value) {
-        controller.text = value;
-        controller.selection = TextSelection.collapsed(offset: value.length);
-      },
     );
   }
 }
