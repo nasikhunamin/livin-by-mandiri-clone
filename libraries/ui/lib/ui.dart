@@ -22,6 +22,7 @@ export 'src/base/web_widget.dart';
 
 // textfield
 export 'src/textfield/filled_text_field.dart';
+export 'src/textfield/password_text_field.dart';
 
 // styles
 export 'src/styles/color_palletes.dart';

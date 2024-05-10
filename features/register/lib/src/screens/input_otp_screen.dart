@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:register/register.dart';
 import 'package:register/src/screens/widgets/progress_scaffold_widget.dart';
 import 'package:ui/ui.dart';
 
@@ -96,7 +97,9 @@ class _InputOtpScreenState extends State<InputOtpScreen> {
               alignment: Alignment.bottomCenter,
               child: RoundedButton(
                 text: "Next",
-                onPressed: () {},
+                onPressed: () {
+                  RegisterNavigation.navigateToSecurity(context);
+                },
               ),
             )
           ],

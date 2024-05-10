@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:register/src/screens/input_otp_screen.dart';
 import 'package:register/src/screens/number_phone_screen.dart';
+import 'package:register/src/screens/password_screen.dart';
 import 'package:register/src/screens/register_product_screen.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:register/src/screens/register_tnc_screen.dart';
+import 'package:register/src/screens/security_screen.dart';
 import 'package:register/src/screens/select_debit_card_screen.dart';
 import 'package:register/src/screens/take_id_screen.dart';
 import 'package:ui/ui.dart';
@@ -58,5 +60,20 @@ abstract class RegisterNavigation {
 
   static void navigateToOtp(BuildContext context) {
     Navigator.push(context, Transition.createRoute(const InputOtpScreen()));
+  }
+
+  static void navigateToSecurity(BuildContext context) {
+    Navigator.push(context, Transition.createRoute(const SecurityScreen()));
+  }
+
+  static Future<String>? navigateToPassword(BuildContext context) async {
+    var result = await Navigator.of(context)
+        .push(Transition.createRoute(const PasswordScreen()));
+
+    if (result != null) {
+      return result;
+    } else {
+      return "";
+    }
   }
 }

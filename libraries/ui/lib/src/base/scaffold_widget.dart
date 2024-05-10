@@ -19,6 +19,7 @@ class ScaffoldWidget extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
