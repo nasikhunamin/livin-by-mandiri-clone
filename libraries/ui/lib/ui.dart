@@ -35,3 +35,5 @@ export 'package:carousel_slider/carousel_options.dart';
 export 'package:carousel_slider/carousel_state.dart';
 export 'package:dots_indicator/dots_indicator.dart';
 export 'package:sticky_and_expandable_list/sticky_and_expandable_list.dart';
+
+export 'src/animation/animated_toggle.dart';

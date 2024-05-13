@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_content_widget.dart';
-import 'package:livin_clone/screens/onboarding/switch_language_widget.dart';
 import 'package:localizations/l10n/ext.dart';
 import 'package:register/register.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:ui/ui.dart';
+
+import '../../providers/language_provider.dart';
 
 class OnboardingPage extends ConsumerStatefulWidget {
   const OnboardingPage({super.key});
@@ -39,7 +40,18 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           children: [
             OnboardingContentWidget(data: onboardings),
             Positioned(
-                top: 32.h, right: 8.w, child: const SwitchLanguageWidget()),
+                top: 32.h,
+                right: 8.w,
+                child: AnimatedToggle(
+                  values: const ["EN", "ID"],
+                  backgroundColor: Colors.blue.shade900,
+                  buttonColor: Colors.white,
+                  onToggleCallback: (val) {
+                    ref
+                        .read(getSelectedLanguageProvider.notifier)
+                        .updateLanguage(val == 0 ? "en" : "id");
+                  },
+                )),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
