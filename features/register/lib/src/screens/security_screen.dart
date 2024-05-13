@@ -45,6 +45,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                     title: "Password berhasil dibuat",
                     description: "Ganti Password"),
               ),
+              8.verticalSpace,
               Visibility(
                 visible: finsihedPin,
                 child: const SecurityDoneContainer(
@@ -68,25 +69,30 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 ),
               ),
               8.verticalSpace,
-              SecurityContainer(
-                isActive: finishedPassword,
-                title: "PIN",
-                description:
-                    "Pin untuk otorisasi transaksi dan pengaturan di aplikasi ini.",
-                btnText: "Buat PIN",
-                icon: "https://cdn-icons-png.freepik.com/512/7878/7878595.png",
-                onFinsih: (value) {
-                  setState(() {
-                    finsihedPin = true;
-                  });
-                },
+              Visibility(
+                visible: !finsihedPin,
+                child: SecurityContainer(
+                  isActive: finishedPassword,
+                  title: "PIN",
+                  type: "pin",
+                  description:
+                      "Pin untuk otorisasi transaksi dan pengaturan di aplikasi ini.",
+                  btnText: "Buat PIN",
+                  icon:
+                      "https://cdn-icons-png.freepik.com/512/7878/7878595.png",
+                  onFinsih: (value) {
+                    setState(() {
+                      finsihedPin = true;
+                    });
+                  },
+                ),
               ),
             ],
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Visibility(
-              visible: false,
+              visible: finishedPassword & finsihedPin,
               child: RoundedButton(
                 text: "Next",
                 onPressed: () {},
@@ -170,6 +176,13 @@ class SecurityContainer extends StatelessWidget {
                             pass.isNotEmpty &&
                             onFinsih != null) {
                           onFinsih!(pass);
+                        }
+                      } else {
+                        String? pin =
+                            await RegisterNavigation.navigateToPin(context);
+
+                        if (pin != null && pin.isNotEmpty && onFinsih != null) {
+                          onFinsih!(pin);
                         }
                       }
                     }

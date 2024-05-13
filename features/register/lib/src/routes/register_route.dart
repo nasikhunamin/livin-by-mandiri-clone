@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:register/src/screens/confirm_pin_screen.dart';
 import 'package:register/src/screens/input_otp_screen.dart';
 import 'package:register/src/screens/number_phone_screen.dart';
 import 'package:register/src/screens/password_screen.dart';
+import 'package:register/src/screens/pin_screen.dart';
 import 'package:register/src/screens/register_product_screen.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:register/src/screens/register_tnc_screen.dart';
@@ -69,6 +71,29 @@ abstract class RegisterNavigation {
   static Future<String>? navigateToPassword(BuildContext context) async {
     var result = await Navigator.of(context)
         .push(Transition.createRoute(const PasswordScreen()));
+
+    if (result != null) {
+      return result;
+    } else {
+      return "";
+    }
+  }
+
+  static Future<String>? navigateToPin(BuildContext context) async {
+    var result = await Navigator.of(context)
+        .push(Transition.createRoute(const PinScreen()));
+
+    if (result != null) {
+      return result;
+    } else {
+      return "";
+    }
+  }
+
+  static Future<String>? navigateToConfirmPin(
+      BuildContext context, String pin) async {
+    var result = await Navigator.of(context)
+        .push(Transition.createRoute(const ConfirmPinScreen()));
 
     if (result != null) {
       return result;
