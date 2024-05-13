@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:register/src/screens/confirm_pin_screen.dart';
+import 'package:register/src/screens/debit_pin_screen.dart';
 import 'package:register/src/screens/input_otp_screen.dart';
 import 'package:register/src/screens/number_phone_screen.dart';
 import 'package:register/src/screens/password_screen.dart';
@@ -9,6 +10,7 @@ import 'package:dependencies/dependencies.dart';
 import 'package:register/src/screens/register_tnc_screen.dart';
 import 'package:register/src/screens/security_screen.dart';
 import 'package:register/src/screens/select_debit_card_screen.dart';
+import 'package:register/src/screens/successful_register.dart';
 import 'package:register/src/screens/take_id_screen.dart';
 import 'package:ui/ui.dart';
 
@@ -100,5 +102,13 @@ abstract class RegisterNavigation {
     } else {
       return "";
     }
+  }
+
+  static void navigateToDebitPin(BuildContext context) {
+    Navigator.push(context, Transition.createRoute(const DebitPinScreen()));
+  }
+
+  static void navigateToSuccessfulRegister(BuildContext context) {
+    Navigator.push(context, Transition.createRoute(const SucessfulRegister()));
   }
 }

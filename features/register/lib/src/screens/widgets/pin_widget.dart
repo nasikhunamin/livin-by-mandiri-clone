@@ -48,7 +48,7 @@ class _PinWidgetState extends State<PinWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
         48.verticalSpace,
 
@@ -60,8 +60,8 @@ class _PinWidgetState extends State<PinWidget> {
             (index) {
               return Container(
                 margin: const EdgeInsets.all(6.0).r,
-                width: 16,
-                height: 16,
+                width: 16.w,
+                height: 16.h,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: index < enteredPin.length
@@ -121,7 +121,7 @@ class _PinWidgetState extends State<PinWidget> {
                 ),
               ),
 
-              48.verticalSpace,
+              16.verticalSpace,
             ],
           ),
         )

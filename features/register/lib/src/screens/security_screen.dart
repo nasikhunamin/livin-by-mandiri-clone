@@ -95,7 +95,9 @@ class _SecurityScreenState extends State<SecurityScreen> {
               visible: finishedPassword & finsihedPin,
               child: RoundedButton(
                 text: "Next",
-                onPressed: () {},
+                onPressed: () {
+                  RegisterNavigation.navigateToDebitPin(context);
+                },
               ),
             ),
           )
