@@ -12,8 +12,9 @@ class RegisterTncScreen extends StatefulWidget {
 }
 
 class _RegisterTncScreenState extends State<RegisterTncScreen> {
-  bool _expanded = false;
   bool _offstage = false;
+  bool _expandFirst = true;
+  bool _expandSecond = false;
   final ScrollController _scrollController = ScrollController();
 
   List<TncSection> tncSections = [
@@ -82,33 +83,166 @@ class _RegisterTncScreenState extends State<RegisterTncScreen> {
                 ),
               ),
             ),
-            SliverExpandableList(
-              builder: SliverExpandableChildDelegate<String, TncSection>(
-                sectionList: tncSections,
-                headerBuilder: _buildHeader,
-                itemBuilder: (context, sectionIndex, itemIndex, index) {
-                  var section = tncSections[sectionIndex];
-                  var item = section.url;
-                  return Offstage(
-                    offstage: _offstage,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 16).r,
-                      height: section.heightContent,
-                      child: WebWidget(
-                        disableHorizontalScroll: true,
-                        disableVerticalScroll: true,
-                        url: item,
-                        onPageFinished: (height) {
-                          tncSections[sectionIndex].heightContent = height;
-                          setState(() {});
-                        },
-                      ),
+            SliverAppBar(
+              titleSpacing: 0,
+              leading: null,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.white,
+              elevation: 0,
+              pinned: _expandFirst,
+              scrolledUnderElevation: 0,
+              title: GestureDetector(
+                  child: Container(
+                    color: Colors.white,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 16)
+                            .r,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "Livin by Mandiri Usage",
+                            style: TextStyle(
+                                fontFamily: FontFamily.poppins,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                                color: Colors.blue),
+                          ),
+                        ),
+                        Icon(
+                          _expandFirst ? Icons.minimize : Icons.add,
+                          color: Colors.blue,
+                        )
+                      ],
                     ),
-                  );
-                },
-              ),
+                  ),
+                  onTap: () {
+                    //toggle section expand state
+                    setState(() {
+                      _expandFirst = !_expandFirst;
+                      _expandSecond = false;
+                      _scrollController.jumpTo(0);
+                    });
+                  }),
             ),
-            SliverToBoxAdapter(child: getButtons())
+
+            SliverToBoxAdapter(
+                child: Visibility(
+              visible: _expandFirst,
+              maintainState: true,
+              child: Offstage(
+                offstage: _offstage,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16).r,
+                  height: 2516,
+                  child: const WebWidget(
+                    url:
+                        "https://pub.dev/packages/sticky_and_expandable_list/example",
+                    disableHorizontalScroll: true,
+                    disableVerticalScroll: true,
+                  ),
+                ),
+              ),
+            )),
+
+            SliverAppBar(
+              titleSpacing: 0,
+              leading: null,
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.white,
+              elevation: 0,
+              pinned: _expandSecond,
+              scrolledUnderElevation: 0,
+              title: GestureDetector(
+                  child: Container(
+                    color: Colors.white,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 16)
+                            .r,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "Opening New Account",
+                            style: TextStyle(
+                                fontFamily: FontFamily.poppins,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                                color: Colors.blue),
+                          ),
+                        ),
+                        Icon(
+                          _expandSecond ? Icons.minimize : Icons.add,
+                          color: Colors.blue,
+                        )
+                      ],
+                    ),
+                  ),
+                  onTap: () {
+                    //toggle section expand state
+                    setState(() {
+                      _expandSecond = !_expandSecond;
+                      _expandFirst = false;
+                      _scrollController.jumpTo(0);
+                    });
+                  }),
+            ),
+
+            SliverToBoxAdapter(
+                child: Visibility(
+              visible: _expandSecond,
+              maintainState: true,
+              child: Offstage(
+                offstage: _offstage,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16).r,
+                  height: 2516,
+                  child: const WebWidget(
+                    url:
+                        "https://pub.dev/packages/sticky_and_expandable_list/example",
+                    disableHorizontalScroll: true,
+                    disableVerticalScroll: true,
+                  ),
+                ),
+              ),
+            )),
+
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: getButtons(),
+            )
+
+            // SliverExpandableList(
+            //   builder: SliverExpandableChildDelegate<String, TncSection>(
+            //     sectionList: tncSections,
+            //     headerBuilder: _buildHeader,
+            //     itemBuilder: (context, sectionIndex, itemIndex, index) {
+            //       var section = tncSections[sectionIndex];
+            //       var item = section.url;
+            //       return Offstage(
+            //         offstage: _offstage,
+            //         child: Container(
+            //           padding: const EdgeInsets.symmetric(horizontal: 16).r,
+            //           height: section.heightContent,
+            //           child: WebWidget(
+            //             disableHorizontalScroll: true,
+            //             disableVerticalScroll: true,
+            //             url: item,
+            //             onPageFinished: (height) {
+            //               tncSections[sectionIndex].heightContent = height;
+            //               setState(() {});
+            //             },
+            //           ),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
+            //SliverToBoxAdapter(child: getButtons())
           ],
         ),
       ),
@@ -117,9 +251,8 @@ class _RegisterTncScreenState extends State<RegisterTncScreen> {
 
   Widget getButtons() {
     return Padding(
-      padding: EdgeInsets.only(
-              left: 16, right: 16, bottom: 36, top: _expanded ? 48 : 0.4.sh)
-          .r,
+      padding:
+          const EdgeInsets.only(left: 16, right: 16, bottom: 24, top: 24).r,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -177,7 +310,7 @@ class _RegisterTncScreenState extends State<RegisterTncScreen> {
           setState(() {
             section.setSectionExpanded(!section.isSectionExpanded());
             for (var element in tncSections) {
-              _expanded = element.expanded == true;
+              //_expanded = element.expanded == true;
             }
           });
         });
