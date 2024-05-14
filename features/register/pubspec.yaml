@@ -20,6 +20,8 @@ dependencies:
     path: '../../shared/dependencies'
   gen:
     path: '../../shared/gen'
+  config:
+    path: '../../shared/config'
 
 dev_dependencies:
   flutter_test:

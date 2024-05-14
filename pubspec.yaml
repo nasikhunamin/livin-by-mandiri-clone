@@ -16,6 +16,8 @@ dependencies:
     path: shared/localizations
   dependencies:
     path: shared/dependencies
+  config:
+    path: shared/config
   gen:
     path: shared/gen
   flutter:

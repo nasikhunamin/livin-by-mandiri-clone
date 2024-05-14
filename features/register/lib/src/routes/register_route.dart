@@ -1,3 +1,4 @@
+import 'package:config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:register/src/screens/confirm_pin_screen.dart';
 import 'package:register/src/screens/debit_pin_screen.dart';
@@ -17,18 +18,11 @@ import 'package:ui/ui.dart';
 import '../screens/search_country_code_screen.dart';
 
 final GoRoute registerRoute = GoRoute(
-    path: RegisterRoute.register.path,
-    name: RegisterRoute.register.name,
+    path: LivinRoutes.register.path,
+    name: LivinRoutes.register.name,
     builder: (context, state) {
       return const RegisterProductScreen();
     });
-
-enum RegisterRoute {
-  register("register");
-
-  final String path;
-  const RegisterRoute(this.path);
-}
 
 abstract class RegisterNavigation {
   static void navigateToSelectDebitCard(BuildContext context) {

@@ -1,9 +1,9 @@
+import 'package:config/config.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:gen/gen.dart';
 import 'package:ui/ui.dart';
-
-import '../../navigation/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,8 +15,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3))
-        .then((value) => context.goNamed(LivinRoutes.onboarding.name));
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      if (locator.get<SharedPrefHelper>().isLogin()) {
+        context.goNamed(LivinRoutes.main.name);
+      } else {
+        context.goNamed(LivinRoutes.onboarding.name);
+      }
+    });
     super.initState();
   }
 

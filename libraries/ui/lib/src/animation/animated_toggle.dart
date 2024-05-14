@@ -7,11 +7,13 @@ class AnimatedToggle extends StatefulWidget {
   final ValueChanged onToggleCallback;
   final Color backgroundColor;
   final Color buttonColor;
+  final bool initialPosition;
 
   const AnimatedToggle({
     super.key,
     required this.values,
     required this.onToggleCallback,
+    this.initialPosition = true,
     this.backgroundColor = const Color(0xFFe7e7e8),
     this.buttonColor = const Color(0xFFFFFFFF),
   });
@@ -21,7 +23,14 @@ class AnimatedToggle extends StatefulWidget {
 }
 
 class _AnimatedToggleState extends State<AnimatedToggle> {
-  bool initialPosition = true;
+  late bool initialPosition;
+
+  @override
+  void initState() {
+    initialPosition = widget.initialPosition;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(

@@ -1,3 +1,5 @@
+import 'package:core/core.dart';
+import 'package:dependencies/dependencies.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/ui.dart';
 
@@ -42,7 +44,10 @@ class SucessfulRegister extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: RoundedButton(
                 text: "Masuk ke Beranda",
-                onPressed: () {},
+                onPressed: () {
+                  locator.get<SharedPrefHelper>().loginStatus = true;
+                  context.go("/");
+                },
               ),
             )
           ],

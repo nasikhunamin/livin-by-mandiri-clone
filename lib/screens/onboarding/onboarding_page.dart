@@ -1,8 +1,9 @@
+import 'package:config/config.dart';
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:livin_clone/screens/onboarding/onboarding.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_content_widget.dart';
 import 'package:localizations/l10n/ext.dart';
-import 'package:register/register.dart';
 import 'package:dependencies/dependencies.dart';
 import 'package:ui/ui.dart';
 
@@ -46,6 +47,9 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                   values: const ["EN", "ID"],
                   backgroundColor: Colors.blue.shade900,
                   buttonColor: Colors.white,
+                  initialPosition:
+                      locator.get<SharedPrefHelper>().getSelectedLanguage() ==
+                          "en",
                   onToggleCallback: (val) {
                     ref
                         .read(getSelectedLanguageProvider.notifier)
@@ -62,7 +66,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
                     RoundedButton(
                       text: context.l10n.registerAccount,
                       onPressed: () {
-                        context.goNamed(RegisterRoute.register.name);
+                        context.goNamed(LivinRoutes.register.name);
                       },
                       fontSize: 16.sp,
                     ),

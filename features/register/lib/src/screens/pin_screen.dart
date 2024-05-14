@@ -26,9 +26,7 @@ class PinScreen extends StatelessWidget {
           16.verticalSpace,
           Expanded(
             child: PinWidget(onSubmitted: (val) async {
-              var result =
-                  await RegisterNavigation.navigateToConfirmPin(context, val);
-              print("mna -> $result");
+              var result = await RegisterNavigation.navigateToConfirmPin(context, val);
               if (context.mounted) {
                 Navigator.pop(context, result);
               }

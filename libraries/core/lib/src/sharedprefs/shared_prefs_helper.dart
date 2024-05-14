@@ -12,4 +12,10 @@ class SharedPrefHelper {
   set language(String value) {
     preferences.setString(SharedPrefsKey.selectedLanguage, value);
   }
+
+  // login status
+  bool isLogin() => preferences.getBool(SharedPrefsKey.loginStatus) ?? false;
+  set loginStatus(bool value) {
+    preferences.setBool(SharedPrefsKey.loginStatus, value);
+  }
 }
