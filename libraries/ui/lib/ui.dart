@@ -10,6 +10,7 @@ export 'src/transition/transition.dart';
 export 'src/timer/countdown.dart';
 export 'src/timer/countdown_controller.dart';
 export 'src/timer/timer_utils.dart';
+export 'src/framing_shape.dart';
 
 // buttons
 export 'src/buttons/outline_rounded_button.dart';
