@@ -12,6 +12,8 @@ dependencies:
     path: libraries/core
   register:
     path: features/register
+  home:
+    path: features/home
   localizations:
     path: shared/localizations
   dependencies:

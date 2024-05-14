@@ -1,6 +1,7 @@
 import 'package:config/config.dart';
 import 'package:flutter/material.dart';
-import 'package:livin_clone/screens/home_screen.dart';
+import 'package:home/home.dart';
+import 'package:livin_clone/screens/sample_screen.dart';
 import 'package:livin_clone/screens/main_screen.dart';
 import 'package:livin_clone/screens/onboarding/onboarding_page.dart';
 import 'package:livin_clone/screens/splash/splash_screen.dart';
@@ -11,7 +12,7 @@ final GlobalKey<NavigatorState> _rootNavKey =
     GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final GlobalKey<NavigatorState> _mainNavKey =
-    GlobalKey<NavigatorState>(debugLabel: 'root');
+    GlobalKey<NavigatorState>(debugLabel: 'dashboard');
 
 // Go-Router Configuration
 final GoRouter livinRouter = GoRouter(
@@ -40,7 +41,7 @@ final GoRouter livinRouter = GoRouter(
             routes: [
               GoRoute(
                 path: "/promo",
-                builder: (context, state) => const HomeScreen(),
+                builder: (context, state) => const SampleScreen(),
               ),
             ],
           ),
@@ -48,7 +49,7 @@ final GoRouter livinRouter = GoRouter(
             routes: [
               GoRoute(
                 path: "/message",
-                builder: (context, state) => const HomeScreen(),
+                builder: (context, state) => const SampleScreen(),
               ),
             ],
           ),
@@ -56,7 +57,7 @@ final GoRouter livinRouter = GoRouter(
             routes: [
               GoRoute(
                 path: "/settings",
-                builder: (context, state) => const HomeScreen(),
+                builder: (context, state) => const SampleScreen(),
               ),
             ],
           ),
@@ -64,7 +65,7 @@ final GoRouter livinRouter = GoRouter(
             routes: [
               GoRoute(
                 path: "/logout",
-                builder: (context, state) => const HomeScreen(),
+                builder: (context, state) => const SampleScreen(),
               ),
             ],
           ),

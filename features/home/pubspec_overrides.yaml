@@ -1,5 +1,4 @@
-# melos_managed_dependency_overrides: config
-# melos_managed_dependency_overrides: core,dependencies,gen,localizations,ui
+# melos_managed_dependency_overrides: config,core,dependencies,gen,localizations,ui
 dependency_overrides:
   config:
     path: ..\\..\\shared\\config

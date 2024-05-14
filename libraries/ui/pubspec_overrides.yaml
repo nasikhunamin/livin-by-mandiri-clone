@@ -1,4 +1,7 @@
+# melos_managed_dependency_overrides: dependencies
 # melos_managed_dependency_overrides: gen
 dependency_overrides:
+  dependencies:
+    path: ..\\..\\shared\\dependencies
   gen:
     path: ..\\..\\shared\\gen
