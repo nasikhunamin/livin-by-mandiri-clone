@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:home/src/screens/dynamic_menu_widget.dart';
 import 'package:ui/ui.dart';
 
 import 'config_menu_widget.dart';
@@ -20,35 +21,44 @@ class HomeScreen extends StatelessWidget {
               height: 80.h,
               width: double.infinity,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 100, left: 16, right: 16).r,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Text.rich(TextSpan(
-                      text: "Selamat Pagi, ",
-                      style: TextStyle(
-                          fontFamily: FontFamily.poppins,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18.sp,
-                          color: Colors.blue),
-                      children: [
-                        WidgetSpan(
-                            child: Text(
-                          "Livia",
-                          style: TextStyle(
-                              fontFamily: FontFamily.poppins,
-                              fontWeight: FontWeight.w900,
-                              color: Colors.blue,
-                              fontSize: 20.sp),
-                        ))
-                      ])),
-                  8.verticalSpace,
-                  const ConfigMenuWidget()
-                ],
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                80.verticalSpace,
+                Text.rich(TextSpan(
+                    text: "Selamat Pagi, ",
+                    style: TextStyle(
+                        fontFamily: FontFamily.poppins,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18.sp,
+                        color: Colors.blue),
+                    children: [
+                      WidgetSpan(
+                          child: Text(
+                        "Livia",
+                        style: TextStyle(
+                            fontFamily: FontFamily.poppins,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.blue,
+                            fontSize: 20.sp),
+                      ))
+                    ])),
+                8.verticalSpace,
+                const ConfigMenuWidget(),
+                Material(
+                  elevation: 0,
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 8).r,
+                    height: 160.h,
+                    width: double.infinity,
+                    child: DynamicMenuWidget(),
+                  ),
+                )
+              ],
             ),
           ],
         ));
